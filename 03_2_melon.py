@@ -49,7 +49,7 @@ lst = soup.find_all(class_=["lst50", "lst100"]) # find_all은 리스트 형태!
 
 # 2. 가수 링크와 앨범 링크를 가져 올 수 있도록
 # 3. 여기서 그냥 실행을 하면 javascript:melon.link.goAlbumDetail('11033394'); 이런식으로 링크가 나옴. 근데 난 숫자만 원해
-# 이때 해야할 것은 위에서 만든 함수를 링크에 적용한다.
+# 이때 해야할 것은 위에서 만든 함수를 링크에 적용한다. get_song_nums(singer['href'])
 for rank, i in enumerate(lst, 1):
     title = i.select_one(".ellipsis.rank01 a")
 
