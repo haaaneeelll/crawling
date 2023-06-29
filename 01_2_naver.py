@@ -17,7 +17,7 @@ html =  req.text
 
 soup = BeautifulSoup(html, "html.parser") 
 
-items = soup.select(".api_ani_send")
+items = soup.select(".timeline_inner.api_ani_send")
 
 rank_num = 1
 for area in items:
