@@ -65,5 +65,4 @@ for rank, i in enumerate(lst, 1):
     print()
 
 
-
   

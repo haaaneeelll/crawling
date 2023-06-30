@@ -62,10 +62,16 @@ for num, link_service in enumerate(link_service, 1):
     print(link_service.text)
     print()
 # 1. Link service를 품고 있는 html을 출력한다. 즉 클래스가 포함된 전체 html을 출력
+
     if link_service.text == "쇼핑":
         link_service .click()
         break
+# 2. 물론 링크 텍스트가 편하지만...언젠가 쓸일이 있어
+# 3. 링크를 찾을 수 있는 방법은 많아. 제일 좋은 방법은 css가 명확한게 제일 좋지..안되면 글자로 찾아야지 ㅠ
+
+
 
 time.sleep(2)
 
 driver.quit()
+

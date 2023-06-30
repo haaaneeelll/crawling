@@ -59,12 +59,12 @@ items = chart_list.find_elements(By.CSS_SELECTOR, ".list_item")
 
 
 
-"""
+# 정제되어 있지 않은 코드를 거르려고 함.
 # type2. 모든 코드가 좋은 코드는 아니다. 멜론처럼 차트리스트라는 전체를 아우르는 html코드가 없을수도 있다. 
 # 밑은 다음과 같은 상황일 때 사용한다.
 
 # items = driver.find_elements(By.CSS_SELECTOR, ".list_item")
-# 4. driver로 가져와야 100개 넘게 가져오지
+# # 4. driver로 가져와야 100개 넘게 가져오지
 
 # for item in items[:] : # [:]를 넣어주자. 전체를 의미함.
 #     try:
@@ -72,12 +72,10 @@ items = chart_list.find_elements(By.CSS_SELECTOR, ".list_item")
 #     except NoSuchElementException:
 #         print("랭크가 없어서 삭제합니다.")
 #         items.remove(item) # 7. 랭크가 없는 item만 가져오면 1위부터 100위까지 나올꺼다
-    # 5. ranking_num만 가져와도 다가져올 수 있음
+#     # 5. ranking_num만 가져와도 다가져올 수 있음..멜론 같은경우 뮤직비디오가 랭크가 없는듯
 
-    # 6. 찾으려고 하는데 찾을 수 없으면 뷰티플숲같은 경우 none을 출력하지만 셀레디움은 에러를 보낸다.
-    # 에러처리를 많이해야해
-"""
+#     # 6. 찾으려고 하는데 찾을 수 없으면 뷰티플숲같은 경우 none을 출력하지만 셀레디움은 에러를 보낸다.
+#     # 에러처리를 많이해야해
 
-print(len(items))
 
-driver.quit()
+

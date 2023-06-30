@@ -8,7 +8,7 @@ url = "https://section.cafe.naver.com/ca-fe/"
 driver = webdriver.Chrome()
 
 driver.get(url)
-time.sleep(3) # 3초동안 기다렸다가 
+time.sleep(3) # 3초동안 기다렸다가, 그리고 굉장히 잘 가져온다.
 
 
 html = driver.page_source
