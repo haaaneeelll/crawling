@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -23,7 +24,7 @@ service = Service(ChromeDriverManager().install())
 
 driver = webdriver.Chrome(service=service, options=options)
 
-url = "https://m2.melon.com/index.htm"
+url = "https://m.bugs.co.kr/chart/track/realtime/total?_redir=n"
 
 
 driver.get(url)
@@ -32,9 +33,11 @@ time.sleep(2)
 
 print(driver.current_url)
 
+
 if driver.current_url != url:
     driver.get(url)
     time.sleep(2)
+
 
 driver.find_element(By.LINK_TEXT, "멜론차트").click()
 time.sleep(2)
@@ -56,6 +59,23 @@ chart_list = driver.find_element(By.CSS_SELECTOR , "#_chartList")
 items = chart_list.find_elements(By.CSS_SELECTOR, ".list_item")
 # 3. 크롤링을 셀레니움으로 본격적으로 하는 코드다.
 # 여기서 중요한점은 모두를 감싸는 class나 id를 찾고 그 하위 개념을 추출한다.
+
+action = ActionChains(driver)
+
+# action.move_to_element(items[90]).perform() # 7 .우리가 원하는 위치로 내려옴
+
+for rank, item in enumerate(items[::10], 1):  # 8. 10개씩 건너뛰면서 1개씩 가져옴.
+    action.move_to_element(item).perform()
+    
+    title = item.find_element(By.CSS_SELECTOR, ".title.ellipsis")
+    name = item.find_element(By.CSS_SELECTOR, ".name.ellipsis")
+        
+    print(f"<<<{rank}>>>") 
+    print(name.text)
+    print(title.text)
+
+
+    time.sleep(1)
 
 
 
